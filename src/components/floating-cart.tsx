@@ -3,16 +3,21 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/cart-context";
+import { usePathname } from "next/navigation";
 
 export default function FloatingCart() {
-  const { getItemCount, getTotal, setIsOpen } = useCart();
+  const { getItemCount, getTotal, setIsOpen, isOpen } = useCart();
+  const pathname = usePathname();
 
   const itemCount = getItemCount();
   const total = getTotal();
 
+  const isCartPage = pathname === "/cart";
+  const shouldShow = itemCount > 0 && !isOpen && !isCartPage;
+
   return (
     <AnimatePresence>
-      {itemCount > 0 && (
+      {shouldShow && (
         <motion.button
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
