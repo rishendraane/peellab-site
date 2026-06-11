@@ -1,0 +1,225 @@
+{
+  "total_products": 627,
+  "unique_products": 627,
+  "issues_found": [],
+  "warnings": [],
+  "duplicates": [],
+  "large_assets": [
+    {
+      "id": "anime-attack-on-titan-sticker-002",
+      "image": "/stickers/processed/anime-attack-on-titan-sticker-002.png",
+      "size_kb": 277.22
+    },
+    {
+      "id": "anime-attack-on-titan-sticker-009",
+      "image": "/stickers/processed/anime-attack-on-titan-sticker-009.png",
+      "size_kb": 350.77
+    },
+    {
+      "id": "anime-attack-on-titan-sticker-019",
+      "image": "/stickers/processed/anime-attack-on-titan-sticker-019.png",
+      "size_kb": 295.52
+    },
+    {
+      "id": "anime-attack-on-titan-sticker-050",
+      "image": "/stickers/processed/anime-attack-on-titan-sticker-050.png",
+      "size_kb": 277.27
+    },
+    {
+      "id": "anime-attack-on-titan-sticker-054",
+      "image": "/stickers/processed/anime-attack-on-titan-sticker-054.png",
+      "size_kb": 290.33
+    },
+    {
+      "id": "anime-demon-slayer-sticker-009",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-009.png",
+      "size_kb": 291.68
+    },
+    {
+      "id": "anime-demon-slayer-sticker-012",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-012.png",
+      "size_kb": 319.93
+    },
+    {
+      "id": "anime-demon-slayer-sticker-013",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-013.png",
+      "size_kb": 306.27
+    },
+    {
+      "id": "anime-demon-slayer-sticker-014",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-014.png",
+      "size_kb": 305.44
+    },
+    {
+      "id": "anime-demon-slayer-sticker-028",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-028.png",
+      "size_kb": 322.92
+    },
+    {
+      "id": "anime-demon-slayer-sticker-033",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-033.png",
+      "size_kb": 259.56
+    },
+    {
+      "id": "anime-demon-slayer-sticker-039",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-039.png",
+      "size_kb": 292.95
+    },
+    {
+      "id": "anime-demon-slayer-sticker-047",
+      "image": "/stickers/processed/anime-demon-slayer-sticker-047.png",
+      "size_kb": 319.88
+    },
+    {
+      "id": "anime-naruto-sticker-002",
+      "image": "/stickers/processed/anime-naruto-sticker-002.png",
+      "size_kb": 261.82
+    },
+    {
+      "id": "anime-vinland-saga-sticker-002",
+      "image": "/stickers/processed/anime-vinland-saga-sticker-002.png",
+      "size_kb": 257.75
+    },
+    {
+      "id": "anime-jujutsu-kaisen-sticker-010",
+      "image": "/stickers/processed/anime-jujutsu-kaisen-sticker-010.png",
+      "size_kb": 252.19
+    },
+    {
+      "id": "anime-jujutsu-kaisen-sticker-022",
+      "image": "/stickers/processed/anime-jujutsu-kaisen-sticker-022.png",
+      "size_kb": 261.27
+    },
+    {
+      "id": "anime-jujutsu-kaisen-sticker-031",
+      "image": "/stickers/processed/anime-jujutsu-kaisen-sticker-031.png",
+      "size_kb": 260.35
+    },
+    {
+      "id": "anime-ken-sticker-001",
+      "image": "/stickers/processed/anime-ken-sticker-001.png",
+      "size_kb": 258.11
+    },
+    {
+      "id": "anime-nanami-kento-sticker-001",
+      "image": "/stickers/processed/anime-nanami-kento-sticker-001.png",
+      "size_kb": 261.06
+    },
+    {
+      "id": "shows-rick-and-morty-sticker-003",
+      "image": "/stickers/processed/shows-rick-and-morty-sticker-003.png",
+      "size_kb": 262.16
+    },
+    {
+      "id": "gaming-minecraft-sticker-039",
+      "image": "/stickers/processed/gaming-minecraft-sticker-039.png",
+      "size_kb": 307.52
+    },
+    {
+      "id": "gaming-god-of-war-sticker-002",
+      "image": "/stickers/processed/gaming-god-of-war-sticker-002.png",
+      "size_kb": 263.6
+    },
+    {
+      "id": "gaming-resident-evil-sticker-001",
+      "image": "/stickers/processed/gaming-resident-evil-sticker-001.png",
+      "size_kb": 304.17
+    },
+    {
+      "id": "memes-sticker-002",
+      "image": "/stickers/processed/memes-sticker-002.png",
+      "size_kb": 253.71
+    },
+    {
+      "id": "memes-dark-humor-sticker-001",
+      "image": "/stickers/processed/memes-dark-humor-sticker-001.png",
+      "size_kb": 260.97
+    },
+    {
+      "id": "memes-duck-sticker-001",
+      "image": "/stickers/processed/memes-duck-sticker-001.png",
+      "size_kb": 284.43
+    },
+    {
+      "id": "memes-relaxation-sticker-001",
+      "image": "/stickers/processed/memes-relaxation-sticker-001.png",
+      "size_kb": 275.36
+    },
+    {
+      "id": "shows-breaking-bad-sticker-004",
+      "image": "/stickers/processed/shows-breaking-bad-sticker-004.png",
+      "size_kb": 358.95
+    },
+    {
+      "id": "shows-breaking-bad-sticker-013",
+      "image": "/stickers/processed/shows-breaking-bad-sticker-013.png",
+      "size_kb": 271.38
+    },
+    {
+      "id": "shows-breaking-bad-sticker-020",
+      "image": "/stickers/processed/shows-breaking-bad-sticker-020.png",
+      "size_kb": 296.89
+    },
+    {
+      "id": "shows-breaking-bad-sticker-023",
+      "image": "/stickers/processed/shows-breaking-bad-sticker-023.png",
+      "size_kb": 260.97
+    },
+    {
+      "id": "shows-breaking-bad-sticker-025",
+      "image": "/stickers/processed/shows-breaking-bad-sticker-025.png",
+      "size_kb": 267.66
+    },
+    {
+      "id": "shows-sticker-013",
+      "image": "/stickers/processed/shows-sticker-013.png",
+      "size_kb": 250.48
+    },
+    {
+      "id": "shows-sticker-015",
+      "image": "/stickers/processed/shows-sticker-015.png",
+      "size_kb": 314.68
+    },
+    {
+      "id": "shows-sticker-023",
+      "image": "/stickers/processed/shows-sticker-023.png",
+      "size_kb": 281.05
+    },
+    {
+      "id": "shows-sticker-025",
+      "image": "/stickers/processed/shows-sticker-025.png",
+      "size_kb": 258.36
+    },
+    {
+      "id": "shows-dukes-of-hazzard-sticker-001",
+      "image": "/stickers/processed/shows-dukes-of-hazzard-sticker-001.png",
+      "size_kb": 256.26
+    },
+    {
+      "id": "shows-game-of-thrones-sticker-001",
+      "image": "/stickers/processed/shows-game-of-thrones-sticker-001.png",
+      "size_kb": 350.43
+    },
+    {
+      "id": "shows-godzilla-sticker-001",
+      "image": "/stickers/processed/shows-godzilla-sticker-001.png",
+      "size_kb": 312.05
+    },
+    {
+      "id": "shows-iron-man-sticker-004",
+      "image": "/stickers/processed/shows-iron-man-sticker-004.png",
+      "size_kb": 282.07
+    },
+    {
+      "id": "shows-marvel-sticker-001",
+      "image": "/stickers/processed/shows-marvel-sticker-001.png",
+      "size_kb": 287.8
+    },
+    {
+      "id": "mystery-pack",
+      "image": "/stickers/processed/mystery_pack_v2.png",
+      "size_kb": 829.89
+    }
+  ],
+  "average_asset_size_kb": 133.72
+}

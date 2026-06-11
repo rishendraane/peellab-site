@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-peel-orange: #FF6A00;
+  --color-peel-orange-hover: #E05D00;
+  --color-peel-bg: #0D0D0D;
+  --color-peel-card: #141414;
+  --color-peel-card-hover: #1A1A1A;
+  --color-peel-border: #222222;
+  --color-peel-border-hover: #333333;
+  --color-peel-grey: #8E8E93;
+
+  --font-outfit: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --background: #0D0D0D;
+  --foreground: #FFFFFF;
+  --font-outfit: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6A00;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  background-image: 
+    linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.85)),
+    url('/bg_texture.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Site Corner Peel Accent (Top Left) */
+.site-peel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.8) 25%, #1a1a1a 49%, #555 51%, rgba(0,0,0,0) 55%);
+  z-index: 100;
+  pointer-events: none;
+  filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.8));
+}
+
+/* Card peel-corner hover animation helper */
+.collection-peel-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: linear-gradient(135deg, rgba(13,13,13,1) 30%, #2a2a2a 45%, #ffffff 49%, #888888 51%, rgba(0,0,0,0) 55%);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 10;
+}
+
