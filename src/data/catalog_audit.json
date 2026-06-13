@@ -1,6 +1,6 @@
 {
-  "total_products": 627,
-  "unique_products": 627,
+  "total_products": 594,
+  "unique_products": 594,
   "issues_found": [],
   "warnings": [],
   "duplicates": [],
@@ -9,11 +9,6 @@
       "id": "anime-attack-on-titan-sticker-002",
       "image": "/stickers/processed/anime-attack-on-titan-sticker-002.png",
       "size_kb": 277.22
-    },
-    {
-      "id": "anime-attack-on-titan-sticker-009",
-      "image": "/stickers/processed/anime-attack-on-titan-sticker-009.png",
-      "size_kb": 350.77
     },
     {
       "id": "anime-attack-on-titan-sticker-019",
@@ -36,44 +31,14 @@
       "size_kb": 291.68
     },
     {
-      "id": "anime-demon-slayer-sticker-012",
-      "image": "/stickers/processed/anime-demon-slayer-sticker-012.png",
-      "size_kb": 319.93
-    },
-    {
-      "id": "anime-demon-slayer-sticker-013",
-      "image": "/stickers/processed/anime-demon-slayer-sticker-013.png",
-      "size_kb": 306.27
-    },
-    {
-      "id": "anime-demon-slayer-sticker-014",
-      "image": "/stickers/processed/anime-demon-slayer-sticker-014.png",
-      "size_kb": 305.44
-    },
-    {
-      "id": "anime-demon-slayer-sticker-028",
-      "image": "/stickers/processed/anime-demon-slayer-sticker-028.png",
-      "size_kb": 322.92
-    },
-    {
       "id": "anime-demon-slayer-sticker-033",
       "image": "/stickers/processed/anime-demon-slayer-sticker-033.png",
       "size_kb": 259.56
     },
     {
-      "id": "anime-demon-slayer-sticker-039",
-      "image": "/stickers/processed/anime-demon-slayer-sticker-039.png",
-      "size_kb": 292.95
-    },
-    {
       "id": "anime-demon-slayer-sticker-047",
       "image": "/stickers/processed/anime-demon-slayer-sticker-047.png",
       "size_kb": 319.88
-    },
-    {
-      "id": "anime-naruto-sticker-002",
-      "image": "/stickers/processed/anime-naruto-sticker-002.png",
-      "size_kb": 261.82
     },
     {
       "id": "anime-vinland-saga-sticker-002",
@@ -221,5 +186,5 @@
       "size_kb": 829.89
     }
   ],
-  "average_asset_size_kb": 133.72
+  "average_asset_size_kb": 130.15
 }

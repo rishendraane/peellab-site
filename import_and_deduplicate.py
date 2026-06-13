@@ -306,6 +306,29 @@ for (cat_slug, fran_slug), stickers_list in franchise_groups.items():
         if fran_slug.lower() in ["other", "general"]:
             prod_id = f"{cat_slug}-sticker-{num_str}"
             
+        # Exclusion list for sold-out/removed items
+        EXCLUDED_PRODUCT_IDS = {
+            "anime-attack-on-titan-sticker-009", "anime-attack-on-titan-sticker-044",
+            "anime-attack-on-titan-sticker-049", "anime-attack-on-titan-sticker-062",
+            "anime-attack-on-titan-sticker-064", "anime-demon-slayer-sticker-010",
+            "anime-demon-slayer-sticker-012", "anime-demon-slayer-sticker-013",
+            "anime-demon-slayer-sticker-014", "anime-demon-slayer-sticker-028",
+            "anime-demon-slayer-sticker-031", "anime-demon-slayer-sticker-030",
+            "anime-demon-slayer-sticker-038", "anime-demon-slayer-sticker-039",
+            "anime-demon-slayer-sticker-043", "anime-demon-slayer-sticker-048",
+            "anime-demon-slayer-sticker-050", "anime-naruto-sticker-002",
+            "anime-naruto-sticker-003", "anime-naruto-sticker-004",
+            "anime-uta-no-prince-sama-sticker-001", "coding-hacking-sticker-001",
+            "coding-programming-sticker-001", "gaming-minecraft-sticker-013",
+            "gaming-minecraft-sticker-020", "gaming-minecraft-sticker-021",
+            "gaming-minecraft-sticker-022", "gaming-minecraft-sticker-032",
+            "gaming-minecraft-sticker-031", "gaming-minecraft-sticker-035",
+            "gaming-minecraft-sticker-038", "gaming-minecraft-sticker-037",
+            "shows-spider-man-sticker-004"
+        }
+        if prod_id in EXCLUDED_PRODUCT_IDS:
+            continue
+            
         dest_filename = f"{prod_id}.png"
         dest_filepath = os.path.join(dest_dir, dest_filename)
         

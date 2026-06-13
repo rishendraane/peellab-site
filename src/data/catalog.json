@@ -81,15 +81,6 @@
     "featured": false
   },
   {
-    "id": "anime-attack-on-titan-sticker-009",
-    "name": "Attack on Titan Sticker #009",
-    "category": "anime",
-    "franchise": "attack-on-titan",
-    "price": 19,
-    "image": "/stickers/processed/anime-attack-on-titan-sticker-009.png",
-    "featured": false
-  },
-  {
     "id": "anime-attack-on-titan-sticker-010",
     "name": "Attack on Titan Sticker #010",
     "category": "anime",
@@ -396,15 +387,6 @@
     "featured": false
   },
   {
-    "id": "anime-attack-on-titan-sticker-044",
-    "name": "Attack on Titan Sticker #044",
-    "category": "anime",
-    "franchise": "attack-on-titan",
-    "price": 19,
-    "image": "/stickers/processed/anime-attack-on-titan-sticker-044.png",
-    "featured": false
-  },
-  {
     "id": "anime-attack-on-titan-sticker-045",
     "name": "Attack on Titan Sticker #045",
     "category": "anime",
@@ -438,15 +420,6 @@
     "franchise": "attack-on-titan",
     "price": 19,
     "image": "/stickers/processed/anime-attack-on-titan-sticker-048.png",
-    "featured": false
-  },
-  {
-    "id": "anime-attack-on-titan-sticker-049",
-    "name": "Attack on Titan Sticker #049",
-    "category": "anime",
-    "franchise": "attack-on-titan",
-    "price": 19,
-    "image": "/stickers/processed/anime-attack-on-titan-sticker-049.png",
     "featured": false
   },
   {
@@ -558,30 +531,12 @@
     "featured": false
   },
   {
-    "id": "anime-attack-on-titan-sticker-062",
-    "name": "Attack on Titan Sticker #062",
-    "category": "anime",
-    "franchise": "attack-on-titan",
-    "price": 19,
-    "image": "/stickers/processed/anime-attack-on-titan-sticker-062.png",
-    "featured": false
-  },
-  {
     "id": "anime-attack-on-titan-sticker-063",
     "name": "Attack on Titan Sticker #063",
     "category": "anime",
     "franchise": "attack-on-titan",
     "price": 19,
     "image": "/stickers/processed/anime-attack-on-titan-sticker-063.png",
-    "featured": false
-  },
-  {
-    "id": "anime-attack-on-titan-sticker-064",
-    "name": "Attack on Titan Sticker #064",
-    "category": "anime",
-    "franchise": "attack-on-titan",
-    "price": 19,
-    "image": "/stickers/processed/anime-attack-on-titan-sticker-064.png",
     "featured": false
   },
   {
@@ -720,48 +675,12 @@
     "featured": false
   },
   {
-    "id": "anime-demon-slayer-sticker-010",
-    "name": "Demon Slayer Sticker #010",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-010.png",
-    "featured": false
-  },
-  {
     "id": "anime-demon-slayer-sticker-011",
     "name": "Demon Slayer Sticker #011",
     "category": "anime",
     "franchise": "demon-slayer",
     "price": 19,
     "image": "/stickers/processed/anime-demon-slayer-sticker-011.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-012",
-    "name": "Demon Slayer Sticker #012",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-012.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-013",
-    "name": "Demon Slayer Sticker #013",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-013.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-014",
-    "name": "Demon Slayer Sticker #014",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-014.png",
     "featured": false
   },
   {
@@ -882,39 +801,12 @@
     "featured": false
   },
   {
-    "id": "anime-demon-slayer-sticker-028",
-    "name": "Demon Slayer Sticker #028",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-028.png",
-    "featured": false
-  },
-  {
     "id": "anime-demon-slayer-sticker-029",
     "name": "Demon Slayer Sticker #029",
     "category": "anime",
     "franchise": "demon-slayer",
     "price": 19,
     "image": "/stickers/processed/anime-demon-slayer-sticker-029.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-030",
-    "name": "Demon Slayer Sticker #030",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-030.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-031",
-    "name": "Demon Slayer Sticker #031",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-031.png",
     "featured": false
   },
   {
@@ -972,24 +864,6 @@
     "featured": false
   },
   {
-    "id": "anime-demon-slayer-sticker-038",
-    "name": "Demon Slayer Sticker #038",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-038.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-039",
-    "name": "Demon Slayer Sticker #039",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-039.png",
-    "featured": false
-  },
-  {
     "id": "anime-demon-slayer-sticker-040",
     "name": "Demon Slayer Sticker #040",
     "category": "anime",
@@ -1014,15 +888,6 @@
     "franchise": "demon-slayer",
     "price": 19,
     "image": "/stickers/processed/anime-demon-slayer-sticker-042.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-043",
-    "name": "Demon Slayer Sticker #043",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-043.png",
     "featured": false
   },
   {
@@ -1062,30 +927,12 @@
     "featured": false
   },
   {
-    "id": "anime-demon-slayer-sticker-048",
-    "name": "Demon Slayer Sticker #048",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-048.png",
-    "featured": false
-  },
-  {
     "id": "anime-demon-slayer-sticker-049",
     "name": "Demon Slayer Sticker #049",
     "category": "anime",
     "franchise": "demon-slayer",
     "price": 19,
     "image": "/stickers/processed/anime-demon-slayer-sticker-049.png",
-    "featured": false
-  },
-  {
-    "id": "anime-demon-slayer-sticker-050",
-    "name": "Demon Slayer Sticker #050",
-    "category": "anime",
-    "franchise": "demon-slayer",
-    "price": 19,
-    "image": "/stickers/processed/anime-demon-slayer-sticker-050.png",
     "featured": false
   },
   {
@@ -1186,33 +1033,6 @@
     "price": 19,
     "image": "/stickers/processed/anime-naruto-sticker-001.png",
     "featured": true
-  },
-  {
-    "id": "anime-naruto-sticker-002",
-    "name": "Naruto Sticker #002",
-    "category": "anime",
-    "franchise": "naruto",
-    "price": 19,
-    "image": "/stickers/processed/anime-naruto-sticker-002.png",
-    "featured": true
-  },
-  {
-    "id": "anime-naruto-sticker-003",
-    "name": "Naruto Sticker #003",
-    "category": "anime",
-    "franchise": "naruto",
-    "price": 19,
-    "image": "/stickers/processed/anime-naruto-sticker-003.png",
-    "featured": false
-  },
-  {
-    "id": "anime-naruto-sticker-004",
-    "name": "Naruto Sticker #004",
-    "category": "anime",
-    "franchise": "naruto",
-    "price": 19,
-    "image": "/stickers/processed/anime-naruto-sticker-004.png",
-    "featured": false
   },
   {
     "id": "anime-vinland-saga-sticker-001",
@@ -1755,15 +1575,6 @@
     "featured": true
   },
   {
-    "id": "anime-uta-no-prince-sama-sticker-001",
-    "name": "Uta no Prince-sama Sticker #001",
-    "category": "anime",
-    "franchise": "uta-no-prince-sama",
-    "price": 19,
-    "image": "/stickers/processed/anime-uta-no-prince-sama-sticker-001.png",
-    "featured": true
-  },
-  {
     "id": "anime-we-bare-bears-sticker-001",
     "name": "We Bare Bears Sticker #001",
     "category": "anime",
@@ -2133,15 +1944,6 @@
     "featured": true
   },
   {
-    "id": "coding-hacking-sticker-001",
-    "name": "Hacking Sticker #001",
-    "category": "coding",
-    "franchise": "hacking",
-    "price": 19,
-    "image": "/stickers/processed/coding-hacking-sticker-001.png",
-    "featured": true
-  },
-  {
     "id": "coding-hello-world-sticker-001",
     "name": "Hello World Sticker #001",
     "category": "coding",
@@ -2202,15 +2004,6 @@
     "franchise": "npm",
     "price": 19,
     "image": "/stickers/processed/coding-npm-sticker-001.png",
-    "featured": true
-  },
-  {
-    "id": "coding-programming-sticker-001",
-    "name": "PROGRAMMING Sticker #001",
-    "category": "coding",
-    "franchise": "programming",
-    "price": 19,
-    "image": "/stickers/processed/coding-programming-sticker-001.png",
     "featured": true
   },
   {
@@ -2448,15 +2241,6 @@
     "featured": false
   },
   {
-    "id": "gaming-minecraft-sticker-013",
-    "name": "Minecraft Sticker #013",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-013.png",
-    "featured": false
-  },
-  {
     "id": "gaming-minecraft-sticker-014",
     "name": "Minecraft Sticker #014",
     "category": "gaming",
@@ -2508,33 +2292,6 @@
     "franchise": "minecraft",
     "price": 19,
     "image": "/stickers/processed/gaming-minecraft-sticker-019.png",
-    "featured": false
-  },
-  {
-    "id": "gaming-minecraft-sticker-020",
-    "name": "Minecraft Sticker #020",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-020.png",
-    "featured": false
-  },
-  {
-    "id": "gaming-minecraft-sticker-021",
-    "name": "Minecraft Sticker #021",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-021.png",
-    "featured": false
-  },
-  {
-    "id": "gaming-minecraft-sticker-022",
-    "name": "Minecraft Sticker #022",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-022.png",
     "featured": false
   },
   {
@@ -2610,24 +2367,6 @@
     "featured": false
   },
   {
-    "id": "gaming-minecraft-sticker-031",
-    "name": "Minecraft Sticker #031",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-031.png",
-    "featured": false
-  },
-  {
-    "id": "gaming-minecraft-sticker-032",
-    "name": "Minecraft Sticker #032",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-032.png",
-    "featured": false
-  },
-  {
     "id": "gaming-minecraft-sticker-033",
     "name": "Minecraft Sticker #033",
     "category": "gaming",
@@ -2646,39 +2385,12 @@
     "featured": false
   },
   {
-    "id": "gaming-minecraft-sticker-035",
-    "name": "Minecraft Sticker #035",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-035.png",
-    "featured": false
-  },
-  {
     "id": "gaming-minecraft-sticker-036",
     "name": "Minecraft Sticker #036",
     "category": "gaming",
     "franchise": "minecraft",
     "price": 19,
     "image": "/stickers/processed/gaming-minecraft-sticker-036.png",
-    "featured": false
-  },
-  {
-    "id": "gaming-minecraft-sticker-037",
-    "name": "Minecraft Sticker #037",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-037.png",
-    "featured": false
-  },
-  {
-    "id": "gaming-minecraft-sticker-038",
-    "name": "Minecraft Sticker #038",
-    "category": "gaming",
-    "franchise": "minecraft",
-    "price": 19,
-    "image": "/stickers/processed/gaming-minecraft-sticker-038.png",
     "featured": false
   },
   {
@@ -5361,15 +5073,6 @@
     "franchise": "spider-man",
     "price": 19,
     "image": "/stickers/processed/shows-spider-man-sticker-003.png",
-    "featured": false
-  },
-  {
-    "id": "shows-spider-man-sticker-004",
-    "name": "Spider-Man Sticker #004",
-    "category": "shows",
-    "franchise": "spider-man",
-    "price": 19,
-    "image": "/stickers/processed/shows-spider-man-sticker-004.png",
     "featured": false
   },
   {
