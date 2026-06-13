@@ -26,9 +26,9 @@ const BUNDLES = [
     price: 49,
     category: "bundle",
     franchise: "bundle",
-    originalPrice: 57,
-    savings: "14%",
-    badge: "MOST POPULAR"
+    originalPrice: 87,
+    savings: "₹38",
+    badge: "🔥 Most Popular"
   },
   {
     id: "bundle-5-pack",
@@ -36,9 +36,9 @@ const BUNDLES = [
     price: 79,
     category: "bundle",
     franchise: "bundle",
-    originalPrice: 95,
-    savings: "17%",
-    badge: "BEST VALUE"
+    originalPrice: 145,
+    savings: "₹66",
+    badge: "⚡ Best Value"
   },
   {
     id: "bundle-10-pack",
@@ -46,9 +46,9 @@ const BUNDLES = [
     price: 149,
     category: "bundle",
     franchise: "bundle",
-    originalPrice: 190,
-    savings: "22%",
-    badge: "COLLECTOR PACK"
+    originalPrice: 290,
+    savings: "₹141",
+    badge: "🚀 Ultimate Deal"
   }
 ];
 

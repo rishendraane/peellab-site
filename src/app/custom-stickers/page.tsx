@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/cart-context";
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -25,6 +26,7 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export default function CustomStickersPage() {
+  const { addItem, setIsOpen } = useCart();
   const [showToast, setShowToast] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -256,17 +258,37 @@ I'll send my photo next.`;
 
         {/* CTA Area */}
         <div className="flex flex-col items-center gap-6">
-          <button
-            onClick={handleCustomOrder}
-            className="flex items-center justify-center gap-3 bg-[#FF6A00] hover:bg-[#E05D00] text-white font-outfit text-sm font-extrabold uppercase tracking-wider py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#FF6A00]/20 w-full sm:w-auto cursor-pointer"
-          >
-            <InstagramIcon className="w-4 h-4" />
-            GET CUSTOM STICKERS
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+            <button
+              onClick={() => {
+                addItem({
+                  id: "custom-sticker",
+                  name: "Custom Sticker (Your Photo)",
+                  price: 25,
+                  category: "custom",
+                  franchise: "custom",
+                  image: "/gallery/custom-sticker-bike-v3.jpg"
+                });
+                setIsOpen(true);
+              }}
+              className="flex items-center justify-center gap-3 bg-[#FF6A00] hover:bg-[#E05D00] text-white font-outfit text-sm font-extrabold uppercase tracking-wider py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#FF6A00]/25 w-full sm:w-auto cursor-pointer"
+            >
+              <ShoppingCart size={16} />
+              ADD TO CART (₹25)
+            </button>
+
+            <button
+              onClick={handleCustomOrder}
+              className="flex items-center justify-center gap-3 bg-[#1A1A1A] border border-[#222222] hover:bg-[#252525] hover:border-[#333] text-white font-outfit text-sm font-extrabold uppercase tracking-wider py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-auto cursor-pointer"
+            >
+              <InstagramIcon className="w-4 h-4" />
+              GET CUSTOM TEMPLATE
+            </button>
+          </div>
 
           {/* Quick Preview Template */}
           <p className="text-[#8E8E93] text-[10px] font-medium tracking-wide uppercase select-none">
-            Clicking copies template and opens DMs on Instagram
+            Getting template copies DMs on Instagram
           </p>
         </div>
 

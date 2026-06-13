@@ -92,7 +92,7 @@ export default function MysteryPackPage() {
             className="flex flex-col text-left"
           >
             <span className="bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] font-outfit text-[10px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4 select-none w-fit">
-              Best Value
+              🎁 Surprise Inside
             </span>
 
             <h1 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 text-white uppercase">
@@ -114,12 +114,17 @@ export default function MysteryPackPage() {
             </div>
 
             {/* Price section */}
-            <div className="flex items-baseline gap-3 mb-8">
-              <span className="font-outfit text-xl font-bold text-[#8E8E93] line-through">₹110</span>
-              <span className="font-outfit text-4xl font-black text-white">₹99</span>
-              <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[10px] font-black uppercase tracking-wide px-2.5 py-1 rounded select-none ml-2">
-                Save 10%
-              </span>
+            <div className="flex flex-col gap-2.5 mb-8">
+              <div className="flex items-baseline gap-3">
+                <span className="font-outfit text-xl font-bold text-[#8E8E93] line-through">₹110</span>
+                <span className="font-outfit text-4xl font-black text-white">₹99</span>
+                <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[10px] font-black uppercase tracking-wide px-2.5 py-1 rounded select-none ml-2">
+                  Save ₹11
+                </span>
+              </div>
+              <div className="text-[#FF6A00] font-outfit text-xs font-black uppercase tracking-widest mt-1 select-none">
+                Limited Drop • While Stocks Last
+              </div>
             </div>
 
             <button

@@ -225,9 +225,16 @@ export default function StickerDetailPage() {
             </p>
 
             <div className="flex flex-col gap-3.5 mb-8">
-              <div className="flex items-baseline gap-3">
+              <div className="flex items-baseline gap-3 flex-wrap">
+                <span className="font-outfit text-xl font-bold text-[#8E8E93] line-through">₹29</span>
                 <span className="font-outfit text-4xl font-black text-white">₹{sticker.price}</span>
+                <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[10px] font-black uppercase tracking-wide px-2.5 py-1 rounded select-none">
+                  Save ₹10
+                </span>
               </div>
+              <p className="text-xs text-[#8E8E93] font-medium tracking-wide">
+                Premium waterproof vinyl stickers.
+              </p>
 
               {/* Checkmarks under price */}
               <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-[#8E8E93] text-[11px] font-black uppercase tracking-wide font-outfit">
@@ -259,14 +266,14 @@ export default function StickerDetailPage() {
                       <span className="font-outfit text-xs font-bold text-white">3 stickers</span>
                     </div>
                     <span className="bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] font-outfit text-[9px] font-black uppercase tracking-wide px-2 py-0.5 rounded select-none inline-block mb-2">
-                      MOST POPULAR
+                      🔥 Most Popular
                     </span>
                   </div>
                   <div className="flex items-baseline gap-1.5 mt-2">
-                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹57</span>
+                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹87</span>
                     <span className="text-lg font-black text-white font-outfit">₹49</span>
                   </div>
-                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹8</span>
+                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹38</span>
                 </div>
 
                 {/* 5 Stickers */}
@@ -276,14 +283,14 @@ export default function StickerDetailPage() {
                       <span className="font-outfit text-xs font-bold text-white">5 stickers</span>
                     </div>
                     <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[9px] font-black uppercase tracking-wide px-2 py-0.5 rounded select-none inline-block mb-2">
-                      BEST VALUE
+                      ⚡ Best Value
                     </span>
                   </div>
                   <div className="flex items-baseline gap-1.5 mt-2">
-                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹95</span>
+                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹145</span>
                     <span className="text-lg font-black text-white font-outfit">₹79</span>
                   </div>
-                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹16</span>
+                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹66</span>
                 </div>
 
                 {/* 10 Stickers */}
@@ -293,14 +300,14 @@ export default function StickerDetailPage() {
                       <span className="font-outfit text-xs font-bold text-white">10 stickers</span>
                     </div>
                     <span className="bg-blue-500/10 border border-blue-500/25 text-blue-400 font-outfit text-[9px] font-black uppercase tracking-wide px-2 py-0.5 rounded select-none inline-block mb-2">
-                      COLLECTOR PACK
+                      🚀 Ultimate Deal
                     </span>
                   </div>
                   <div className="flex items-baseline gap-1.5 mt-2">
-                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹190</span>
+                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹290</span>
                     <span className="text-lg font-black text-white font-outfit">₹149</span>
                   </div>
-                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹41</span>
+                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹141</span>
                 </div>
               </div>
               <p className="text-[10px] text-[#8E8E93] font-medium mt-3 text-center">

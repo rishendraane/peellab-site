@@ -82,11 +82,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const getTotal = useCallback(() => {
     const individualStickersCount = items
-      .filter((item) => item.sticker.id !== "mystery-pack" && !item.sticker.id.startsWith("bundle-"))
+      .filter((item) => item.sticker.id !== "mystery-pack" && !item.sticker.id.startsWith("bundle-") && item.sticker.id !== "custom-sticker")
       .reduce((sum, item) => sum + item.quantity, 0);
 
     const mysteryPackCount = items
       .filter((item) => item.sticker.id === "mystery-pack")
+      .reduce((sum, item) => sum + item.quantity, 0);
+
+    const customStickersCount = items
+      .filter((item) => item.sticker.id === "custom-sticker")
       .reduce((sum, item) => sum + item.quantity, 0);
 
     const bundlePacksTotal = items
@@ -106,30 +110,35 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       regularPrice = individualStickersCount * 19;
     }
 
-    return regularPrice + mysteryPackCount * 99 + bundlePacksTotal;
+    return regularPrice + mysteryPackCount * 99 + customStickersCount * 25 + bundlePacksTotal;
   }, [items]);
 
   const getOriginalTotal = useCallback(() => {
     const individualStickersCount = items
-      .filter((item) => item.sticker.id !== "mystery-pack" && !item.sticker.id.startsWith("bundle-"))
+      .filter((item) => item.sticker.id !== "mystery-pack" && !item.sticker.id.startsWith("bundle-") && item.sticker.id !== "custom-sticker")
       .reduce((sum, item) => sum + item.quantity, 0);
 
     const mysteryPackCount = items
       .filter((item) => item.sticker.id === "mystery-pack")
       .reduce((sum, item) => sum + item.quantity, 0);
 
+    const customStickersCount = items
+      .filter((item) => item.sticker.id === "custom-sticker")
+      .reduce((sum, item) => sum + item.quantity, 0);
+
     const bundlePacksOriginalTotal = items
       .filter((item) => item.sticker.id.startsWith("bundle-"))
       .reduce((sum, item) => {
         let orig = 0;
-        if (item.sticker.id === "bundle-3-pack") orig = 57;
-        else if (item.sticker.id === "bundle-5-pack") orig = 95;
-        else if (item.sticker.id === "bundle-10-pack") orig = 190;
+        if (item.sticker.id === "bundle-3-pack") orig = 87;
+        else if (item.sticker.id === "bundle-5-pack") orig = 145;
+        else if (item.sticker.id === "bundle-10-pack") orig = 290;
         return sum + orig * item.quantity;
       }, 0);
 
-    const regularOriginal = individualStickersCount * 19;
-    return regularOriginal + mysteryPackCount * 110 + bundlePacksOriginalTotal;
+    const regularOriginal = individualStickersCount * 29;
+    const customOriginal = customStickersCount * 39;
+    return regularOriginal + mysteryPackCount * 110 + customOriginal + bundlePacksOriginalTotal;
   }, [items]);
 
   const getSavings = useCallback(() => {
