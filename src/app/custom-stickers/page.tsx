@@ -267,7 +267,7 @@ I'll send my photo next.`;
                   price: 25,
                   category: "custom",
                   franchise: "custom",
-                  image: "/gallery/custom-sticker-bike-v3.jpg"
+                  image: "/logo.png"
                 });
                 setIsOpen(true);
               }}
