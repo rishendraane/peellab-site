@@ -50,7 +50,11 @@ export default function CartPage() {
       .join("\n");
     const totalAmount = getTotal();
 
-    const message = `Order ID: ${orderId}\n\nItems:\n${itemLines}\n\nTotal: ₹${totalAmount}`;
+    const hasCustom = items.some((item) => item.sticker.id === "custom-sticker");
+    let message = `Order ID: ${orderId}\n\nItems:\n${itemLines}\n\nTotal: ₹${totalAmount}`;
+    if (hasCustom) {
+      message += `\n\n📸 Custom Stickers detected! Please send the photos/designs you want printed directly in this DM thread.`;
+    }
 
     try {
       await navigator.clipboard.writeText(message);
