@@ -57,19 +57,9 @@ export default function StickerCard({ sticker }: StickerCardProps) {
           </h3>
 
           <div className="flex items-center justify-between">
-            <div className="flex flex-col gap-0.5">
-              <div className="flex items-center gap-1.5">
-                <span className="font-outfit text-xs font-bold text-[#8E8E93] line-through">
-                  ₹29
-                </span>
-                <span className="font-outfit text-lg font-extrabold text-white">
-                  ₹{sticker.price}
-                </span>
-              </div>
-              <span className="text-emerald-400 font-outfit text-[10px] font-black uppercase tracking-wider select-none">
-                Save 34%
-              </span>
-            </div>
+            <span className="font-outfit text-lg font-extrabold text-white">
+              ₹{sticker.price}
+            </span>
 
             <button
               onClick={handleAddToCart}

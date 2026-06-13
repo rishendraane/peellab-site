@@ -225,17 +225,7 @@ export default function StickerDetailPage() {
             </p>
 
             <div className="flex flex-col gap-3.5 mb-8">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] font-outfit text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded select-none">
-                  Limited Launch Pricing
-                </span>
-                <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[10px] font-black uppercase tracking-wide px-2.5 py-1 rounded select-none">
-                  Save 34%
-                </span>
-              </div>
-              
               <div className="flex items-baseline gap-3">
-                <span className="font-outfit text-xl font-bold text-[#8E8E93] line-through">₹29</span>
                 <span className="font-outfit text-4xl font-black text-white">₹{sticker.price}</span>
               </div>
 
@@ -254,6 +244,68 @@ export default function StickerDetailPage() {
                   <span className="text-[#FF6A00] font-black">✓</span> Residue Free
                 </span>
               </div>
+            </div>
+
+            {/* Mix & Match Bundle Offers */}
+            <div className="border border-[#222222] bg-[#141414]/30 rounded-2xl p-5 mb-8">
+              <h3 className="font-outfit text-xs font-black uppercase tracking-wider text-[#FF6A00] mb-3 select-none">
+                Mix & Match Bundle Offers
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {/* 3 Stickers */}
+                <div className="flex flex-col justify-between p-4 rounded-xl border border-[#222222] bg-[#0D0D0D]">
+                  <div>
+                    <div className="flex items-center gap-1.5 flex-wrap mb-1">
+                      <span className="font-outfit text-xs font-bold text-white">3 stickers</span>
+                    </div>
+                    <span className="bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] font-outfit text-[9px] font-black uppercase tracking-wide px-2 py-0.5 rounded select-none inline-block mb-2">
+                      MOST POPULAR
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-1.5 mt-2">
+                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹57</span>
+                    <span className="text-lg font-black text-white font-outfit">₹49</span>
+                  </div>
+                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹8</span>
+                </div>
+
+                {/* 5 Stickers */}
+                <div className="flex flex-col justify-between p-4 rounded-xl border border-[#222222] bg-[#0D0D0D]">
+                  <div>
+                    <div className="flex items-center gap-1.5 flex-wrap mb-1">
+                      <span className="font-outfit text-xs font-bold text-white">5 stickers</span>
+                    </div>
+                    <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[9px] font-black uppercase tracking-wide px-2 py-0.5 rounded select-none inline-block mb-2">
+                      BEST VALUE
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-1.5 mt-2">
+                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹95</span>
+                    <span className="text-lg font-black text-white font-outfit">₹79</span>
+                  </div>
+                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹16</span>
+                </div>
+
+                {/* 10 Stickers */}
+                <div className="flex flex-col justify-between p-4 rounded-xl border border-[#222222] bg-[#0D0D0D]">
+                  <div>
+                    <div className="flex items-center gap-1.5 flex-wrap mb-1">
+                      <span className="font-outfit text-xs font-bold text-white">10 stickers</span>
+                    </div>
+                    <span className="bg-blue-500/10 border border-blue-500/25 text-blue-400 font-outfit text-[9px] font-black uppercase tracking-wide px-2 py-0.5 rounded select-none inline-block mb-2">
+                      COLLECTOR PACK
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-1.5 mt-2">
+                    <span className="text-xs text-[#8E8E93] line-through font-outfit">₹190</span>
+                    <span className="text-lg font-black text-white font-outfit">₹149</span>
+                  </div>
+                  <span className="text-[10px] text-emerald-400 font-bold mt-1 block">Save ₹41</span>
+                </div>
+              </div>
+              <p className="text-[10px] text-[#8E8E93] font-medium mt-3 text-center">
+                * Mix and match any stickers! Discount applies automatically in your cart.
+              </p>
             </div>
 
             <button

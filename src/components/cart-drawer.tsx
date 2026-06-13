@@ -376,34 +376,66 @@ function DrawerContent({
       )}
 
       {/* Footer */}
-      {items.length > 0 && (
-        <div className="border-t border-peel-border p-6 flex flex-col gap-3.5">
-          {savings > 0 && (
-            <>
-              <div className="flex items-center justify-between text-xs text-[#8E8E93] select-none">
-                <span>Original Subtotal</span>
-                <span className="line-through">₹{originalTotal}</span>
+      {items.length > 0 && (() => {
+        const individualStickersCount = items
+          .filter((item) => item.sticker.id !== "mystery-pack" && !item.sticker.id.startsWith("bundle-"))
+          .reduce((sum, item) => sum + item.quantity, 0);
+
+        const hasBundle3 = items.some((item) => item.sticker.id === "bundle-3-pack");
+        const hasBundle5 = items.some((item) => item.sticker.id === "bundle-5-pack");
+        const hasBundle10 = items.some((item) => item.sticker.id === "bundle-10-pack");
+
+        let bundleBadge = null;
+        let badgeStyles = "";
+        if (individualStickersCount === 3 || hasBundle3) {
+          bundleBadge = "MOST POPULAR";
+          badgeStyles = "bg-[#FF6A00]/10 border-[#FF6A00]/25 text-[#FF6A00]";
+        } else if (individualStickersCount === 5 || hasBundle5) {
+          bundleBadge = "BEST VALUE";
+          badgeStyles = "bg-emerald-500/10 border-emerald-500/25 text-emerald-400";
+        } else if (individualStickersCount === 10 || hasBundle10) {
+          bundleBadge = "COLLECTOR PACK";
+          badgeStyles = "bg-blue-500/10 border-blue-500/25 text-blue-400";
+        }
+
+        return (
+          <div className="border-t border-peel-border p-6 flex flex-col gap-3.5">
+            {bundleBadge && (
+              <div className="flex items-center justify-between border-b border-[#222]/40 pb-3 mb-1">
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#8E8E93]">Bundle Applied</span>
+                <span className={`px-2.5 py-1 rounded border text-[9px] font-black uppercase tracking-wider ${badgeStyles}`}>
+                  {bundleBadge}
+                </span>
               </div>
-              <div className="flex items-center justify-between text-xs font-bold text-emerald-400 select-none">
-                <span>You Save</span>
-                <span>-₹{savings}</span>
-              </div>
-            </>
-          )}
-          
-          <div className="flex items-center justify-between pb-4 border-b border-[#222]/60">
-            <span className="text-sm font-bold text-white">Today&apos;s Total</span>
-            <span className="font-outfit text-xl font-black text-white">₹{total}</span>
+            )}
+
+            {savings > 0 && (
+              <>
+                <div className="flex items-center justify-between text-xs text-[#8E8E93] select-none">
+                  <span>Original Subtotal</span>
+                  <span className="line-through">₹{originalTotal}</span>
+                </div>
+                <div className="flex items-center justify-between text-xs font-bold text-emerald-400 select-none">
+                  <span>You Save</span>
+                  <span>₹{savings}</span>
+                </div>
+              </>
+            )}
+            
+            <div className="flex items-center justify-between pb-4 border-b border-[#222]/60">
+              <span className="text-sm font-bold text-white">Today&apos;s Total</span>
+              <span className="font-outfit text-xl font-black text-[#FF6A00]">₹{total}</span>
+            </div>
+            
+            <button
+              onClick={onCheckout}
+              className="w-full rounded-xl bg-peel-orange py-4 font-outfit text-sm font-extrabold uppercase tracking-wide text-white transition-colors hover:bg-[#E05D00] cursor-pointer"
+            >
+              Order via Instagram
+            </button>
           </div>
-          
-          <button
-            onClick={onCheckout}
-            className="w-full rounded-xl bg-peel-orange py-4 font-outfit text-sm font-extrabold uppercase tracking-wide text-white transition-colors hover:bg-[#E05D00] cursor-pointer"
-          >
-            Order via Instagram
-          </button>
-        </div>
-      )}
+        );
+      })()}
     </>
   );
 }

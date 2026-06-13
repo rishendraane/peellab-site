@@ -115,10 +115,10 @@ export default function MysteryPackPage() {
 
             {/* Price section */}
             <div className="flex items-baseline gap-3 mb-8">
-              <span className="font-outfit text-xl font-bold text-[#8E8E93] line-through">₹190</span>
+              <span className="font-outfit text-xl font-bold text-[#8E8E93] line-through">₹110</span>
               <span className="font-outfit text-4xl font-black text-white">₹99</span>
               <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[10px] font-black uppercase tracking-wide px-2.5 py-1 rounded select-none ml-2">
-                Save 48%
+                Save 10%
               </span>
             </div>
 

@@ -12,10 +12,33 @@ function generateOrderId(): string {
 }
 
 export default function CartPage() {
-  const { items, updateQuantity, removeItem, getTotal, getItemCount } = useCart();
+  const { items, updateQuantity, removeItem, getTotal, getOriginalTotal, getSavings, getItemCount } = useCart();
 
   const total = getTotal();
+  const originalTotal = getOriginalTotal();
+  const savings = getSavings();
   const itemCount = getItemCount();
+
+  const individualStickersCount = items
+    .filter((item) => item.sticker.id !== "mystery-pack" && !item.sticker.id.startsWith("bundle-"))
+    .reduce((sum, item) => sum + item.quantity, 0);
+
+  const hasBundle3 = items.some((item) => item.sticker.id === "bundle-3-pack");
+  const hasBundle5 = items.some((item) => item.sticker.id === "bundle-5-pack");
+  const hasBundle10 = items.some((item) => item.sticker.id === "bundle-10-pack");
+
+  let bundleBadge = null;
+  let badgeStyles = "";
+  if (individualStickersCount === 3 || hasBundle3) {
+    bundleBadge = "MOST POPULAR";
+    badgeStyles = "bg-[#FF6A00]/10 border-[#FF6A00]/25 text-[#FF6A00]";
+  } else if (individualStickersCount === 5 || hasBundle5) {
+    bundleBadge = "BEST VALUE";
+    badgeStyles = "bg-emerald-500/10 border-emerald-500/25 text-emerald-400";
+  } else if (individualStickersCount === 10 || hasBundle10) {
+    bundleBadge = "COLLECTOR PACK";
+    badgeStyles = "bg-blue-500/10 border-blue-500/25 text-blue-400";
+  }
 
   const handleCheckout = useCallback(async () => {
     if (items.length === 0) return;
@@ -202,14 +225,30 @@ export default function CartPage() {
               </h2>
 
               <div className="flex flex-col gap-4 text-sm font-medium">
+                {bundleBadge && (
+                  <div className="flex items-center justify-between border-b border-[#222]/40 pb-3 mb-1">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#8E8E93]">Bundle Applied</span>
+                    <span className={`px-2.5 py-1 rounded border text-[9px] font-black uppercase tracking-wider ${badgeStyles}`}>
+                      {bundleBadge}
+                    </span>
+                  </div>
+                )}
                 <div className="flex items-center justify-between text-[#8E8E93]">
                   <span>Total Items</span>
-                  <span className="text-white">{itemCount}</span>
+                  <span className="text-white font-bold">{itemCount}</span>
                 </div>
-                <div className="flex items-center justify-between text-[#8E8E93]">
-                  <span>Subtotal</span>
-                  <span className="text-white">₹{total}</span>
-                </div>
+                {savings > 0 && (
+                  <>
+                    <div className="flex items-center justify-between text-[#8E8E93]">
+                      <span>Original Subtotal</span>
+                      <span className="line-through">₹{originalTotal}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-emerald-400 font-bold">
+                      <span>You Save</span>
+                      <span>₹{savings}</span>
+                    </div>
+                  </>
+                )}
                 <div className="flex items-center justify-between text-[#8E8E93]">
                   <span>Shipping</span>
                   <span className="text-green-500 font-bold uppercase text-xs bg-green-500/10 px-2 py-0.5 rounded">
@@ -218,8 +257,8 @@ export default function CartPage() {
                 </div>
                 <div className="h-px bg-[#222222] my-2" />
                 <div className="flex items-baseline justify-between">
-                  <span className="font-outfit text-base font-bold text-white">TOTAL</span>
-                  <span className="font-outfit text-2xl font-black text-white">₹{total}</span>
+                  <span className="font-outfit text-base font-bold text-white">Today&apos;s Total</span>
+                  <span className="font-outfit text-2xl font-black text-[#FF6A00]">₹{total}</span>
                 </div>
               </div>
 
