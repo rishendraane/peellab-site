@@ -233,7 +233,7 @@ export default function StickerDetailPage() {
                 </span>
               </div>
               <p className="text-xs text-[#8E8E93] font-medium tracking-wide">
-                Premium waterproof vinyl stickers.
+                Premium waterproof stickers.
               </p>
 
               {/* Checkmarks under price */}
