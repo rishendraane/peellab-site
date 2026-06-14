@@ -33,12 +33,6 @@ export default function FloatingCart() {
           <span className="font-outfit text-sm font-extrabold text-white">
             {itemCount} {itemCount === 1 ? "Item" : "Items"}
           </span>
-
-          <span className="h-5 w-px bg-white/25" />
-
-          <span className="font-outfit text-sm font-extrabold text-white">
-            ₹{total}
-          </span>
         </motion.button>
       )}
     </AnimatePresence>
