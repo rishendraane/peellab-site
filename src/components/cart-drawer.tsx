@@ -14,8 +14,19 @@ function generateOrderId(): string {
 }
 
 export default function CartDrawer() {
-  const { isOpen, setIsOpen, items, updateQuantity, removeItem, getTotal, getOriginalTotal, getSavings, getItemCount } =
-    useCart();
+  const {
+    isOpen,
+    setIsOpen,
+    items,
+    updateQuantity,
+    removeItem,
+    getTotal,
+    getOriginalTotal,
+    getSavings,
+    getItemCount,
+    getShippingFee,
+    getFinalTotal,
+  } = useCart();
 
   const [checkoutData, setCheckoutData] = useState<{
     orderId: string;
@@ -57,10 +68,13 @@ export default function CartDrawer() {
     const itemLines = itemDetails
       .map((item) => `• ${item.name} × ${item.quantity}`)
       .join("\n");
-    const total = getTotal();
+    const subtotal = getTotal();
+    const shipping = getShippingFee();
+    const finalTotal = getFinalTotal();
+    const shippingStr = shipping === 0 ? "FREE" : `₹${shipping}`;
 
     const hasCustom = items.some((item) => item.sticker.id === "custom-sticker");
-    let message = `Order ID: ${orderId}\n\nItems:\n${itemLines}\n\nTotal: ₹${total}`;
+    let message = `Order ID: ${orderId}\n\nItems:\n${itemLines}\n\nSubtotal: ₹${subtotal}\nShipping: ${shippingStr}\nFinal Total: ₹${finalTotal}`;
     if (hasCustom) {
       message += `\n\n📸 Custom Stickers detected! Please send the photos/designs you want printed directly in this DM thread.`;
     }
@@ -68,11 +82,11 @@ export default function CartDrawer() {
     setCheckoutData({
       orderId,
       itemsList: itemDetails,
-      total,
+      total: finalTotal,
       message,
     });
     setCopied(false);
-  }, [items, getTotal]);
+  }, [items, getTotal, getShippingFee, getFinalTotal]);
 
   const handleCopy = useCallback(async (text: string) => {
     try {
@@ -96,6 +110,8 @@ export default function CartDrawer() {
   const total = getTotal();
   const originalTotal = getOriginalTotal();
   const savings = getSavings();
+  const shippingFee = getShippingFee();
+  const finalTotal = getFinalTotal();
 
   return (
     <>
@@ -126,6 +142,8 @@ export default function CartDrawer() {
                 total={total}
                 originalTotal={originalTotal}
                 savings={savings}
+                shippingFee={shippingFee}
+                finalTotal={finalTotal}
                 updateQuantity={updateQuantity}
                 removeItem={removeItem}
                 onClose={() => setIsOpen(false)}
@@ -151,6 +169,8 @@ export default function CartDrawer() {
                 total={total}
                 originalTotal={originalTotal}
                 savings={savings}
+                shippingFee={shippingFee}
+                finalTotal={finalTotal}
                 updateQuantity={updateQuantity}
                 removeItem={removeItem}
                 onClose={() => setIsOpen(false)}
@@ -311,6 +331,8 @@ interface DrawerContentProps {
   total: number;
   originalTotal: number;
   savings: number;
+  shippingFee: number;
+  finalTotal: number;
   updateQuantity: (id: string, quantity: number) => void;
   removeItem: (id: string) => void;
   onClose: () => void;
@@ -323,6 +345,8 @@ function DrawerContent({
   total,
   originalTotal,
   savings,
+  shippingFee,
+  finalTotal,
   updateQuantity,
   removeItem,
   onClose,
@@ -443,6 +467,38 @@ function DrawerContent({
 
         return (
           <div className="border-t border-peel-border p-6 flex flex-col gap-3.5">
+            {/* Free Shipping Progress Banner */}
+            {total < 199 ? (
+              <div className="bg-[#141414] border border-[#222222] rounded-xl p-4 flex flex-col gap-2.5 text-xs select-none">
+                <div className="flex items-center gap-2 text-white">
+                  <span className="text-base">🚚</span>
+                  <span className="font-outfit font-bold uppercase tracking-wide">
+                    Add <span className="text-[#FF6A00]">₹{199 - total}</span> more to unlock <span className="text-[#FF6A00]">FREE</span> Shipping
+                  </span>
+                </div>
+                {/* Progress Bar */}
+                <div className="w-full h-1.5 bg-[#222] rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-[#FF6A00] transition-all duration-500 ease-out" 
+                    style={{ width: `${Math.min(100, (total / 199) * 100)}%` }}
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="bg-[#FF6A00]/5 border border-[#FF6A00]/20 rounded-xl p-4 flex flex-col gap-2 text-xs select-none">
+                <div className="flex items-center gap-2 text-[#FF6A00]">
+                  <span className="text-base animate-bounce">🎉</span>
+                  <span className="font-outfit font-black uppercase tracking-wider">
+                    FREE Shipping Unlocked
+                  </span>
+                </div>
+                {/* Full Progress Bar */}
+                <div className="w-full h-1.5 bg-[#FF6A00]/10 rounded-full overflow-hidden">
+                  <div className="h-full w-full bg-[#FF6A00]" />
+                </div>
+              </div>
+            )}
+
             {badges.length > 0 && (
               <div className="flex flex-col gap-2 border-b border-[#222]/40 pb-3 mb-1">
                 <span className="text-[10px] font-black uppercase tracking-wider text-[#8E8E93] select-none">Active Deals</span>
@@ -478,15 +534,32 @@ function DrawerContent({
                   </div>
                 </>
               )}
+              <div className="flex items-center justify-between text-[#8E8E93] border-t border-[#222222]/30 pt-2.5">
+                <span>Subtotal</span>
+                <span className="text-white font-medium">₹{total}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center justify-between text-[#8E8E93]">
+                  <span>Shipping</span>
+                  {shippingFee === 0 ? (
+                    <span className="font-outfit text-xs font-bold text-[#FF6A00]">
+                      <span className="line-through text-[#8E8E93] mr-1.5 font-normal">₹39</span>FREE
+                    </span>
+                  ) : (
+                    <span className="text-white">₹39</span>
+                  )}
+                </div>
+                {shippingFee > 0 && (
+                  <span className="text-[10px] text-[#8E8E93] leading-none text-right font-medium">
+                    📦 Flat ₹39 Shipping Across India
+                  </span>
+                )}
+              </div>
             </div>
             
             <div className="flex items-center justify-between pb-2">
               <span className="text-sm font-bold text-white uppercase tracking-wider">Final Total</span>
-              <span className="font-outfit text-xl font-black text-[#FF6A00]">₹{total}</span>
-            </div>
-
-            <div className="text-[10px] text-[#8E8E93] text-center italic mb-2 select-none font-sans">
-              Shipping calculated at checkout
+              <span className="font-outfit text-xl font-black text-[#FF6A00]">₹{finalTotal}</span>
             </div>
             
             <button

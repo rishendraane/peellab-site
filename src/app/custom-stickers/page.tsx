@@ -176,6 +176,17 @@ I'll send my photo next.`;
             <p className="text-[#8E8E93] text-[10px] font-medium mt-1">
               Custom made from your photos, artwork, logos and ideas.
             </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 mt-3 pt-3 border-t border-[#222222]/60 text-xs text-[#8E8E93] font-medium select-none w-full justify-center">
+              <div className="flex items-center gap-1.5">
+                <span>📦</span>
+                <span>Flat ₹39 Shipping Across India</span>
+              </div>
+              <span className="hidden sm:inline text-[#333]">|</span>
+              <div className="flex items-center gap-1.5">
+                <span>🚚</span>
+                <span>Free Shipping Above ₹199</span>
+              </div>
+            </div>
           </div>
         </div>
 

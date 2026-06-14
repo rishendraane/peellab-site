@@ -13,6 +13,8 @@ interface CartContextType {
   getOriginalTotal: () => number;
   getSavings: () => number;
   getItemCount: () => number;
+  getShippingFee: () => number;
+  getFinalTotal: () => number;
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
 }
@@ -149,6 +151,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return items.reduce((sum, item) => sum + item.quantity, 0);
   }, [items]);
 
+  const getShippingFee = useCallback(() => {
+    const subtotal = getTotal();
+    if (subtotal > 0 && subtotal < 199) {
+      return 39;
+    }
+    return 0;
+  }, [getTotal]);
+
+  const getFinalTotal = useCallback(() => {
+    return getTotal() + getShippingFee();
+  }, [getTotal, getShippingFee]);
+
   return (
     <CartContext.Provider
       value={{
@@ -161,6 +175,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         getOriginalTotal,
         getSavings,
         getItemCount,
+        getShippingFee,
+        getFinalTotal,
         isOpen,
         setIsOpen,
       }}

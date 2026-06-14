@@ -12,12 +12,14 @@ function generateOrderId(): string {
 }
 
 export default function CartPage() {
-  const { items, updateQuantity, removeItem, getTotal, getOriginalTotal, getSavings, getItemCount } = useCart();
+  const { items, updateQuantity, removeItem, getTotal, getOriginalTotal, getSavings, getItemCount, getShippingFee, getFinalTotal } = useCart();
 
   const total = getTotal();
   const originalTotal = getOriginalTotal();
   const savings = getSavings();
   const itemCount = getItemCount();
+  const shippingFee = getShippingFee();
+  const finalTotal = getFinalTotal();
 
   const individualStickersCount = items
     .filter((item) => item.sticker.id !== "mystery-pack" && !item.sticker.id.startsWith("bundle-") && item.sticker.id !== "custom-sticker")
@@ -48,10 +50,13 @@ export default function CartPage() {
     const itemLines = items
       .map((item) => `• ${item.sticker.name} × ${item.quantity}`)
       .join("\n");
-    const totalAmount = getTotal();
+    const subtotal = getTotal();
+    const shipping = getShippingFee();
+    const finalTotal = getFinalTotal();
+    const shippingStr = shipping === 0 ? "FREE" : `₹${shipping}`;
 
     const hasCustom = items.some((item) => item.sticker.id === "custom-sticker");
-    let message = `Order ID: ${orderId}\n\nItems:\n${itemLines}\n\nTotal: ₹${totalAmount}`;
+    let message = `Order ID: ${orderId}\n\nItems:\n${itemLines}\n\nSubtotal: ₹${subtotal}\nShipping: ${shippingStr}\nFinal Total: ₹${finalTotal}`;
     if (hasCustom) {
       message += `\n\n📸 Custom Stickers detected! Please send the photos/designs you want printed directly in this DM thread.`;
     }
@@ -109,7 +114,7 @@ export default function CartPage() {
     setTimeout(() => {
       window.open("https://instagram.com/peellab.in", "_blank");
     }, 1500);
-  }, [items, getTotal]);
+  }, [items, getTotal, getShippingFee, getFinalTotal]);
 
   return (
     <main className="min-h-screen pt-28 pb-20">
@@ -229,6 +234,38 @@ export default function CartPage() {
                 ORDER SUMMARY
               </h2>
 
+              {/* Free Shipping Progress Banner */}
+              {total < 199 ? (
+                <div className="bg-[#0D0D0D] border border-[#222222] rounded-xl p-4 flex flex-col gap-2.5 text-xs select-none">
+                  <div className="flex items-center gap-2 text-white">
+                    <span className="text-base">🚚</span>
+                    <span className="font-outfit font-bold uppercase tracking-wide text-[11px]">
+                      Add <span className="text-[#FF6A00]">₹{199 - total}</span> more to unlock <span className="text-[#FF6A00]">FREE</span> Shipping
+                    </span>
+                  </div>
+                  {/* Progress Bar */}
+                  <div className="w-full h-1.5 bg-[#222] rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-[#FF6A00] transition-all duration-500 ease-out" 
+                      style={{ width: `${Math.min(100, (total / 199) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-[#FF6A00]/5 border border-[#FF6A00]/20 rounded-xl p-4 flex flex-col gap-2 text-xs select-none">
+                  <div className="flex items-center gap-2 text-[#FF6A00]">
+                    <span className="text-base animate-bounce">🎉</span>
+                    <span className="font-outfit font-black uppercase tracking-wider text-[11px]">
+                      FREE Shipping Unlocked
+                    </span>
+                  </div>
+                  {/* Full Progress Bar */}
+                  <div className="w-full h-1.5 bg-[#FF6A00]/10 rounded-full overflow-hidden">
+                    <div className="h-full w-full bg-[#FF6A00]" />
+                  </div>
+                </div>
+              )}
+
               <div className="flex flex-col gap-4 text-sm font-medium">
                 {badges.length > 0 && (
                   <div className="flex flex-col gap-2 border-b border-[#222]/40 pb-3 mb-1">
@@ -243,37 +280,56 @@ export default function CartPage() {
                   </div>
                 )}
                 <div className="flex items-center justify-between text-[#8E8E93]">
-                  <span>Total Items</span>
+                  <span>Items Count</span>
                   <span className="text-white font-bold">{itemCount}</span>
+                </div>
+                <div className="flex items-center justify-between text-[#8E8E93]">
+                  <span>Original Total</span>
+                  <span>₹{originalTotal}</span>
                 </div>
                 {savings > 0 && (
                   <>
                     <div className="flex items-center justify-between text-[#8E8E93]">
-                      <span>Original Subtotal</span>
-                      <span className="line-through">₹{originalTotal}</span>
+                      <span>Bundle Discount</span>
+                      <span className="text-emerald-400 font-medium">-₹{savings}</span>
                     </div>
-                    <div className="flex items-center justify-between text-emerald-400 font-bold">
+                    <div className="flex items-center justify-between text-emerald-400 font-bold bg-emerald-500/5 border border-emerald-500/10 rounded-lg px-2.5 py-1.5">
                       <span>You Save</span>
                       <span>₹{savings}</span>
                     </div>
                   </>
                 )}
-                <div className="flex items-center justify-between text-[#8E8E93]">
-                  <span>Shipping</span>
-                  <span className="text-green-500 font-bold uppercase text-xs bg-green-500/10 px-2 py-0.5 rounded">
-                    FREE
-                  </span>
+                <div className="flex items-center justify-between text-[#8E8E93] border-t border-[#222222]/30 pt-3">
+                  <span>Subtotal</span>
+                  <span className="text-white font-bold">₹{total}</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center justify-between text-[#8E8E93]">
+                    <span>Shipping</span>
+                    {shippingFee === 0 ? (
+                      <span className="font-outfit text-xs font-bold text-[#FF6A00]">
+                        <span className="line-through text-[#8E8E93] mr-1.5 font-normal">₹39</span>FREE
+                      </span>
+                    ) : (
+                      <span className="text-white font-bold">₹39</span>
+                    )}
+                  </div>
+                  {shippingFee > 0 && (
+                    <span className="text-[11px] text-[#8E8E93] leading-none text-right font-medium mt-0.5">
+                      📦 Flat ₹39 Shipping Across India
+                    </span>
+                  )}
                 </div>
                 <div className="h-px bg-[#222222] my-2" />
                 <div className="flex items-baseline justify-between">
-                  <span className="font-outfit text-base font-bold text-white">Today&apos;s Total</span>
-                  <span className="font-outfit text-2xl font-black text-[#FF6A00]">₹{total}</span>
+                  <span className="font-outfit text-base font-bold text-white">Final Total</span>
+                  <span className="font-outfit text-2xl font-black text-[#FF6A00]">₹{finalTotal}</span>
                 </div>
               </div>
 
               <button
                 onClick={handleCheckout}
-                className="w-full flex items-center justify-center gap-3 bg-[#FF6A00] hover:bg-[#E05D00] text-white font-outfit text-sm font-extrabold uppercase py-4 rounded-xl tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#FF6A00]/25 active:scale-95"
+                className="w-full flex items-center justify-center gap-3 bg-[#FF6A00] hover:bg-[#E05D00] text-white font-outfit text-sm font-extrabold uppercase py-4 rounded-xl tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#FF6A00]/25 active:scale-95 cursor-pointer"
               >
                 ORDER VIA INSTAGRAM
               </button>

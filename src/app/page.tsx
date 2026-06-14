@@ -624,6 +624,11 @@ export default function Home() {
             <p className="font-sans text-[#8E8E93] text-sm sm:text-base">
               Photos, Pets, Vehicles, Artwork & More
             </p>
+            <div className="flex items-center justify-center gap-4 mt-4 text-xs text-[#8E8E93] font-medium select-none">
+              <span>📦 Flat ₹39 Shipping Across India</span>
+              <span className="text-[#333]">|</span>
+              <span>🚚 Free Shipping Above ₹199</span>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 text-left select-none">
@@ -695,7 +700,10 @@ export default function Home() {
 
                 <div className="flex flex-col gap-1.5 mb-8">
                   <span className="font-outfit text-4xl font-black text-white">₹99</span>
-                  <span className="font-sans text-xs text-[#8E8E93]">Shipping calculated at checkout</span>
+                  <div className="flex flex-col gap-1 text-xs text-[#8E8E93] font-medium mt-1 select-none">
+                    <span>📦 Flat ₹39 Shipping Across India</span>
+                    <span>🚚 Free Shipping Above ₹199</span>
+                  </div>
                 </div>
 
                 <Link
