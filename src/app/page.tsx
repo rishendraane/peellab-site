@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingCart, Sparkles, Gamepad2, Film, Terminal, Zap, Gauge } from "lucide-react";
+import { ArrowRight, ShoppingCart, Sparkles, Gamepad2, Film, Terminal, Zap, Gauge, Camera, Heart, Car, Palette } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 import { categories, getFranchisesByCategory } from "@/data/categories";
 import { getAllStickers, searchStickers, getMysteryPack, getStickersByCategory } from "@/lib/stickers";
@@ -611,8 +611,116 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Custom Stickers Showcase */}
+      <section className="py-20 border-t border-[#141414] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="max-w-2xl mx-auto mb-16 select-none">
+            <span className="font-outfit text-xs font-black tracking-[3px] text-[#FF6A00] mb-3 uppercase block">
+              Custom Prints
+            </span>
+            <h2 className="font-outfit text-3xl sm:text-5xl font-black tracking-tight text-white mb-4 uppercase">
+              Turn Anything Into A Sticker
+            </h2>
+            <p className="font-sans text-[#8E8E93] text-sm sm:text-base">
+              Photos, Pets, Vehicles, Artwork & More
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 text-left select-none">
+            {[
+              { icon: Camera, title: "Photos", desc: "Convert memories into custom stickers." },
+              { icon: Heart, title: "Pets", desc: "Turn your pets into premium stickers." },
+              { icon: Car, title: "Vehicles", desc: "Cars, bikes and custom rides." },
+              { icon: Palette, title: "Artwork", desc: "Your designs and illustrations." }
+            ].map((card, idx) => {
+              const IconComponent = card.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-[#141414] border border-[#222222] rounded-3xl p-8 transition-colors duration-300 hover:border-[#FF6A00]/40 hover:bg-[#1A1A1A] group flex flex-col items-start"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-[#FF6A00]/10 border border-[#FF6A00]/20 text-[#FF6A00] flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110">
+                    <IconComponent className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <h3 className="font-outfit text-lg font-bold text-white mb-2 uppercase tracking-wide">
+                    {card.title}
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-[#8E8E93] leading-relaxed">
+                    {card.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          <Link
+            href="/custom-stickers"
+            className="inline-flex items-center gap-2 border border-[#FF6A00] text-[#FF6A00] hover:bg-[#FF6A00] hover:text-white font-outfit text-sm font-bold px-8 py-4 rounded-xl transition-all duration-300 active:scale-95 uppercase hover:shadow-lg hover:shadow-[#FF6A00]/10"
+          >
+            Create Custom Stickers →
+          </Link>
+        </div>
+      </section>
+
+      {/* Mystery Pack Showcase */}
+      {mysteryPack && (
+        <section className="py-20 border-t border-[#141414] relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="relative bg-[#141414] border border-[#222222] rounded-3xl p-8 md:p-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              {/* Corner accent */}
+              <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-l-[40px] border-t-[#0D0D0D] border-l-[#0D0D0D] border-r-transparent border-b-transparent z-10" />
+
+              <div className="flex flex-col items-start text-left z-10 max-w-xl">
+                <span className="bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] font-outfit text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
+                  🎁 Surprise Inside
+                </span>
+                <h2 className="font-outfit text-3xl sm:text-5xl font-black tracking-tight text-white mb-4 uppercase">
+                  Mystery Sticker Packs
+                </h2>
+                <p className="font-sans text-sm sm:text-base text-[#8E8E93] leading-relaxed mb-6">
+                  Every pack contains a surprise collection of original PeelLab stickers.
+                </p>
+                
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-8 select-none">
+                  {["Anime", "Gaming", "Coding", "Memes", "Surprise Extras"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-[#0D0D0D] border border-[#222222] text-white font-sans text-[11px] px-3.5 py-1.5 rounded-full font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-1.5 mb-8">
+                  <span className="font-outfit text-4xl font-black text-white">₹99</span>
+                  <span className="font-sans text-xs text-[#8E8E93]">Shipping calculated at checkout</span>
+                </div>
+
+                <Link
+                  href="/mystery-pack"
+                  className="inline-flex items-center gap-2 bg-[#FF6A00] hover:bg-[#E05D00] text-white font-outfit text-sm font-extrabold px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-0.5 active:scale-95 uppercase shadow-lg shadow-[#FF6A00]/25"
+                >
+                  Explore Mystery Packs →
+                </Link>
+              </div>
+
+              {/* Mockup Image */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center z-10">
+                <img
+                  src={mysteryPack.image}
+                  alt="Mystery Pack"
+                  className="max-w-full max-h-full object-contain drop-shadow-[4px_8px_16px_rgba(0,0,0,0.6)] hover:scale-105 transition-transform duration-500 ease-out select-none"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Featured/Results Section */}
-      <section ref={shopRef} id="shop" className="py-12">
+      <section ref={shopRef} id="shop" className="py-20 border-t border-[#141414]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between mb-8">
             <h2 className="font-outfit text-xl sm:text-2xl font-black tracking-wide text-white uppercase">
@@ -657,63 +765,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mystery Pack Section */}
-      {mysteryPack && (
-        <section className="py-12">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="relative bg-[#141414] border border-[#222222] rounded-3xl p-8 md:p-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
-              {/* Vibe corner */}
-              <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-l-[40px] border-t-[#0D0D0D] border-l-[#0D0D0D] border-r-transparent border-b-transparent z-10" />
-
-              <div className="flex flex-col items-start text-left z-10 max-w-lg">
-                <span className="bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] font-outfit text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-4 select-none">
-                  🎁 Surprise Inside
-                </span>
-                <h2 className="font-outfit text-3xl sm:text-4xl font-black tracking-tight text-white mb-2 uppercase">
-                  MYSTERY PACK
-                </h2>
-                <div className="flex flex-col gap-0.5 mb-5 select-none">
-                  <span className="text-[#FF6A00] font-outfit text-xs font-black uppercase tracking-wider">
-                    10 Curated Stickers
-                  </span>
-                  <span className="text-[#8E8E93] font-outfit text-sm font-bold">
-                    Worth ₹190+
-                  </span>
-                </div>
-                <div className="flex flex-col gap-2.5 mb-8">
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-outfit text-xl font-bold text-[#8E8E93] line-through">₹110</span>
-                    <span className="font-outfit text-4xl font-black text-white">₹99</span>
-                    <span className="bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-outfit text-[10px] font-black uppercase tracking-wide px-2.5 py-1 rounded select-none ml-1">
-                      Save ₹11
-                    </span>
-                  </div>
-                  <div className="text-[#FF6A00] font-outfit text-[10px] font-black uppercase tracking-widest mt-1 select-none">
-                    Limited Drop • While Stocks Last
-                  </div>
-                </div>
-                <button
-                  onClick={() => {
-                    addItem(mysteryPack);
-                  }}
-                  className="flex items-center gap-3 bg-white hover:bg-zinc-200 text-black font-outfit text-sm font-extrabold px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/5 active:scale-95"
-                >
-                  ADD TO CART
-                  <ShoppingCart className="w-4 h-4 stroke-[2.5]" />
-                </button>
-              </div>
-
-              <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center z-10">
-                <img
-                  src={mysteryPack.image}
-                  alt="Mystery Pack"
-                  className="max-w-full max-h-full object-contain drop-shadow-[4px_8px_16px_rgba(0,0,0,0.6)] hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Mobile Sticky CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 p-4 bg-[#0D0D0D]/90 backdrop-blur-md border-t border-[#222222] md:hidden">
+        <button
+          onClick={() => {
+            searchRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
+          className="w-full bg-[#FF6A00] hover:bg-[#E05D00] text-white font-outfit text-sm font-black tracking-wider py-3.5 px-6 rounded-xl active:scale-95 transition-all duration-300 uppercase flex items-center justify-center gap-2"
+        >
+          <span>Build Your Pack</span>
+          <ArrowRight className="w-4 h-4 stroke-[3]" />
+        </button>
+      </div>
     </div>
   );
 }

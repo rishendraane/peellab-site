@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Minus, Plus, Trash2, ShoppingBag, Copy, ExternalLink, Check } from "lucide-react";
 import { useCart } from "@/context/cart-context";
+import { getStickersByCategory, getFeaturedStickers, getAllStickers } from "@/lib/stickers";
 
 function generateOrderId(): string {
   const digits = Math.floor(1000 + Math.random() * 9000);
@@ -327,16 +328,50 @@ function DrawerContent({
   onClose,
   onCheckout,
 }: DrawerContentProps) {
+  const { clearCart } = useCart();
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
+
   return (
     <>
       {/* Header */}
       <div className="flex items-center justify-between border-b border-peel-border px-6 py-5">
-        <h2 className="font-outfit text-xl font-extrabold text-white">
-          Your Cart
-          {itemCount > 0 && (
-            <span className="ml-2 text-sm font-medium text-peel-grey">({itemCount})</span>
+        <div className="flex items-center gap-2">
+          <h2 className="font-outfit text-xl font-extrabold text-white">
+            Your Cart
+            {itemCount > 0 && (
+              <span className="ml-2 text-sm font-medium text-peel-grey">({itemCount})</span>
+            )}
+          </h2>
+          {itemCount > 0 && !showClearConfirm && (
+            <button
+              onClick={() => setShowClearConfirm(true)}
+              className="text-[10px] font-outfit font-black text-red-500 hover:text-red-400 uppercase tracking-wider transition-colors ml-3 cursor-pointer"
+            >
+              Clear Cart
+            </button>
           )}
-        </h2>
+          {showClearConfirm && (
+            <div className="flex items-center gap-2 ml-3">
+              <span className="text-[9px] font-sans text-[#8E8E93] uppercase font-bold">Clear?</span>
+              <button
+                onClick={() => {
+                  clearCart();
+                  setShowClearConfirm(false);
+                }}
+                className="text-[10px] font-outfit font-black text-red-500 hover:text-red-400 uppercase tracking-wide transition-colors cursor-pointer"
+              >
+                Yes
+              </button>
+              <span className="text-[#333] text-[9px]">|</span>
+              <button
+                onClick={() => setShowClearConfirm(false)}
+                className="text-[10px] font-outfit font-black text-[#8E8E93] hover:text-white uppercase tracking-wide transition-colors cursor-pointer"
+              >
+                No
+              </button>
+            </div>
+          )}
+        </div>
         <button
           onClick={onClose}
           className="flex h-9 w-9 items-center justify-center rounded-lg text-peel-grey transition-colors hover:bg-[#1A1A1A] hover:text-white"
@@ -376,6 +411,9 @@ function DrawerContent({
               />
             ))}
           </div>
+          
+          {/* You May Also Like Section */}
+          <CartRecommendations items={items} />
         </div>
       )}
 
@@ -418,22 +456,37 @@ function DrawerContent({
               </div>
             )}
 
-            {savings > 0 && (
-              <>
-                <div className="flex items-center justify-between text-xs text-[#8E8E93] select-none">
-                  <span>Original Subtotal</span>
-                  <span className="line-through">₹{originalTotal}</span>
-                </div>
-                <div className="flex items-center justify-between text-xs font-bold text-emerald-400 select-none">
-                  <span>You Save</span>
-                  <span>₹{savings}</span>
-                </div>
-              </>
-            )}
+            {/* Cart Summary */}
+            <div className="flex flex-col gap-2.5 border-b border-[#222222]/60 pb-4 mb-1 select-none text-xs">
+              <div className="flex items-center justify-between text-[#8E8E93]">
+                <span>Items Count</span>
+                <span className="text-white font-medium">{itemCount}</span>
+              </div>
+              <div className="flex items-center justify-between text-[#8E8E93]">
+                <span>Original Total</span>
+                <span>₹{originalTotal}</span>
+              </div>
+              {savings > 0 && (
+                <>
+                  <div className="flex items-center justify-between text-[#8E8E93]">
+                    <span>Bundle Discount</span>
+                    <span className="text-emerald-400 font-medium">-₹{savings}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-emerald-400 font-bold bg-emerald-500/5 border border-emerald-500/10 rounded-lg px-2.5 py-1.5 mt-1">
+                    <span>You Save</span>
+                    <span>₹{savings}</span>
+                  </div>
+                </>
+              )}
+            </div>
             
-            <div className="flex items-center justify-between pb-4 border-b border-[#222]/60">
-              <span className="text-sm font-bold text-white">Today&apos;s Total</span>
+            <div className="flex items-center justify-between pb-2">
+              <span className="text-sm font-bold text-white uppercase tracking-wider">Final Total</span>
               <span className="font-outfit text-xl font-black text-[#FF6A00]">₹{total}</span>
+            </div>
+
+            <div className="text-[10px] text-[#8E8E93] text-center italic mb-2 select-none font-sans">
+              Shipping calculated at checkout
             </div>
             
             <button
@@ -515,6 +568,87 @@ function CartItemRow({ item, updateQuantity, removeItem }: CartItemRowProps) {
             ₹{sticker.price * quantity}
           </span>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Cart Recommendations component                                    */
+/* ------------------------------------------------------------------ */
+
+function CartRecommendations({ items }: { items: any[] }) {
+  const { addItem } = useCart();
+
+  const hasAnime = items.some((item) => item.sticker.category === "anime");
+  const hasCars = items.some((item) => item.sticker.category === "cars");
+  const hasCoding = items.some((item) => item.sticker.category === "coding");
+
+  let recs: any[] = [];
+  if (hasAnime) {
+    recs = getStickersByCategory("anime");
+  } else if (hasCars) {
+    recs = getStickersByCategory("cars");
+  } else if (hasCoding) {
+    recs = getStickersByCategory("coding");
+  } else {
+    recs = getFeaturedStickers();
+    if (recs.length < 4) {
+      recs = getAllStickers();
+    }
+  }
+
+  // Filter out items already in cart
+  const cartIds = new Set(items.map((item) => item.sticker.id));
+  const filteredRecs = recs.filter((sticker) => !cartIds.has(sticker.id) && sticker.id !== "mystery-pack");
+
+  // Get up to 6 items. If less than 4, pad with general stickers not in cart
+  let finalRecs = filteredRecs.slice(0, 6);
+  if (finalRecs.length < 4) {
+    const allStickers = getAllStickers().filter((s) => !cartIds.has(s.id) && s.id !== "mystery-pack");
+    const extra = allStickers.filter((s) => !finalRecs.some((fr) => fr.id === s.id));
+    finalRecs = [...finalRecs, ...extra].slice(0, 6);
+  }
+
+  if (finalRecs.length === 0) return null;
+
+  return (
+    <div className="border-t border-[#222222]/40 pt-6 mt-6 select-none">
+      <h3 className="font-outfit text-xs font-black uppercase tracking-wider text-white mb-4">
+        You May Also Like
+      </h3>
+      <div className="grid grid-cols-1 gap-3">
+        {finalRecs.map((sticker) => (
+          <div
+            key={sticker.id}
+            className="flex items-center justify-between gap-3 bg-[#141414]/40 border border-[#222222]/40 rounded-xl p-2.5 transition-all hover:border-[#FF6A00]/25"
+          >
+            <div className="flex items-center gap-3">
+              <div className="relative h-11 w-11 flex-shrink-0 overflow-hidden rounded-lg bg-[#141414] border border-[#222222]">
+                <img
+                  src={sticker.image}
+                  alt={sticker.name}
+                  className="h-full w-full object-contain p-1"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-semibold text-white truncate max-w-[150px] sm:max-w-[180px]">
+                  {sticker.name}
+                </span>
+                <span className="text-[11px] font-bold text-[#FF6A00] mt-0.5">
+                  ₹{sticker.price}
+                </span>
+              </div>
+            </div>
+            
+            <button
+              onClick={() => addItem(sticker)}
+              className="px-3 py-1.5 rounded-lg bg-[#FF6A00] hover:bg-[#E05D00] text-white text-[10px] font-outfit font-black uppercase tracking-wider transition-colors active:scale-95 cursor-pointer"
+            >
+              + ADD
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

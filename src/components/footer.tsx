@@ -56,7 +56,7 @@ export function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="py-6 text-center">
+      <div className="py-6 pb-24 md:pb-6 text-center">
         <p className="text-[#8E8E93] text-xs font-sans">
           © 2026 PEEL LAB. All rights reserved.
         </p>

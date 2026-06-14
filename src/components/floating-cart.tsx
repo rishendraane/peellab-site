@@ -26,7 +26,7 @@ export default function FloatingCart() {
           whileHover={{ y: -3, scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-[100] flex items-center gap-3 rounded-full bg-[#FF6A00] px-5 py-3 shadow-[0_4px_20px_rgba(255,106,0,0.35)] transition-all duration-200 hover:bg-[#E05D00] hover:shadow-[0_8px_32px_rgba(255,106,0,0.5)]"
+          className="fixed bottom-24 md:bottom-6 right-6 z-[100] flex items-center gap-3 rounded-full bg-[#FF6A00] px-5 py-3 shadow-[0_4px_20px_rgba(255,106,0,0.35)] transition-all duration-200 hover:bg-[#E05D00] hover:shadow-[0_8px_32px_rgba(255,106,0,0.5)]"
         >
           <ShoppingCart className="h-5 w-5 text-white" />
 
