@@ -3,10 +3,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingCart, Sparkles, Gamepad2, Film, Terminal, Zap, Gauge, Camera, Heart, Car, Palette } from "lucide-react";
+import { ArrowRight, ShoppingCart, Sparkles, Gamepad2, Film, Terminal, Zap, Gauge, Camera, Heart, Car, Palette, ShieldCheck } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 import { categories, getFranchisesByCategory } from "@/data/categories";
-import { getAllStickers, searchStickers, getMysteryPack, getStickersByCategory } from "@/lib/stickers";
+import { getAllStickers, searchStickers, getMysteryPack, getStickersByCategory, getFeaturedStickers } from "@/lib/stickers";
 import StickerCard from "@/components/sticker-card";
 
 const SUGGESTIONS = ["gojo", "levi", "breaking bad", "gta", "minecraft", "naruto", "doge"];
@@ -316,7 +316,7 @@ export default function Home() {
   // Find products matching query
   const displayedStickers = searchQuery.trim()
     ? searchStickers(searchQuery)
-    : getAllStickers();
+    : getFeaturedStickers();
 
   const handleSuggestionClick = (tag: string) => {
     if (activeTag === tag) {
@@ -770,6 +770,64 @@ export default function Home() {
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Returns & Replacements Section */}
+      <section className="py-20 border-t border-[#141414] bg-[#0D0D0D] relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="bg-[#141414] border border-[#222222] rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            {/* Subtle background glow */}
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#FF6A00]/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12 relative z-10">
+              {/* Left Side: Policy Copy */}
+              <div className="flex-1 text-left">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] flex items-center justify-center">
+                    <ShieldCheck className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <span className="font-outfit text-xs font-black tracking-[2px] text-[#FF6A00] uppercase block">
+                      Shop with confidence
+                    </span>
+                    <h2 className="font-outfit text-2xl sm:text-3xl font-black text-white uppercase tracking-wide">
+                      Returns & Replacements
+                    </h2>
+                  </div>
+                </div>
+                
+                <p className="font-sans text-[#8E8E93] text-sm leading-relaxed mb-4">
+                  Due to the nature of stickers and custom-made products, we do not accept returns or exchanges once shipped.
+                </p>
+                <p className="font-sans text-xs text-[#8E8E93]/80 leading-relaxed">
+                  However, if your order arrives damaged, defective, or incorrect, please contact us within 48 hours of delivery with clear photos. We&apos;ll review the problem and provide a replacement if necessary.
+                </p>
+              </div>
+
+              {/* Right Side: Trust Feature Badges */}
+              <div className="flex-1 w-full grid grid-cols-2 gap-3.5 select-none">
+                {[
+                  { title: "Wrong item received", desc: "Correct items sent free of cost." },
+                  { title: "Damaged during delivery", desc: "Replaced immediately." },
+                  { title: "Printing defects", desc: "Flawless prints guaranteed." },
+                  { title: "Missing items", desc: "Sent out via express courier." }
+                ].map((item, idx) => (
+                  <div 
+                    key={idx}
+                    className="bg-[#0D0D0D] border border-[#222222] p-4 rounded-2xl flex flex-col justify-between min-h-[90px] hover:border-[#FF6A00]/20 transition-colors duration-300"
+                  >
+                    <span className="text-[#FF6A00] text-xs font-bold font-outfit tracking-wide flex items-center gap-1.5 uppercase">
+                      ✓ {item.title}
+                    </span>
+                    <span className="text-[10px] text-[#8E8E93] leading-normal mt-1.5 font-medium">
+                      {item.desc}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

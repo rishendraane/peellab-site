@@ -28,6 +28,10 @@ const FAQS = [
     question: "Are the stickers durable?",
     answer: "Yes, our stickers are water-resistant and easy to peel off without leaving sticky residue, making them suitable for laptops, water bottles, and notebooks.",
   },
+  {
+    question: "Can I return my stickers?",
+    answer: "Since stickers are custom and made-to-order products, returns and exchanges are not accepted. If your order arrives damaged, defective, or incorrect, contact us within 48 hours and we'll help resolve the issue.",
+  },
 ];
 
 export default function MysteryPackPage() {
