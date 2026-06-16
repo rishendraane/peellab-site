@@ -7,13 +7,19 @@ import CartDrawer from "@/components/cart-drawer";
 import FloatingCart from "@/components/floating-cart";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://peellab.in'),
-  title: "PeelLab | Premium Stickers for Every Vibe",
-  description: "Get water-resistant, premium die-cut stickers for anime, gaming, coding, memes, and shows. Order directly via Instagram DM.",
+  metadataBase: new URL('https://peellab-in.netlify.app'),
+  title: "PeelLab | Premium Anime, Gaming & Custom Stickers",
+  description: "Premium stickers for anime, gaming, coding, cars, memes and custom designs. Build your own sticker pack or create custom stickers with PeelLab.",
+  alternates: {
+    canonical: "https://peellab-in.netlify.app",
+  },
+  verification: {
+    google: "googlede6c4c38bee5a2b2",
+  },
   openGraph: {
-    title: "PeelLab | Premium Stickers for Every Vibe",
-    description: "Get water-resistant, premium die-cut stickers for anime, gaming, coding, memes, and shows. Order directly via Instagram DM.",
-    url: "https://peellab.in",
+    title: "PeelLab | Premium Anime, Gaming & Custom Stickers",
+    description: "Premium stickers for anime, gaming, coding, cars, memes and custom designs. Build your own sticker pack or create custom stickers with PeelLab.",
+    url: "https://peellab-in.netlify.app",
     siteName: "PeelLab",
     images: [
       {
@@ -28,10 +34,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PeelLab | Premium Stickers for Every Vibe",
-    description: "Get water-resistant, premium die-cut stickers for anime, gaming, coding, memes, and shows. Order directly via Instagram DM.",
+    title: "PeelLab | Premium Anime, Gaming & Custom Stickers",
+    description: "Premium stickers for anime, gaming, coding, cars, memes and custom designs. Build your own sticker pack or create custom stickers with PeelLab.",
     images: ["/stickers/hero_collage.png"],
   },
+};
+
+export const viewport = {
+  themeColor: "#FF6A00",
 };
 
 export default function RootLayout({
@@ -41,6 +51,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "PeelLab",
+              "url": "https://peellab-in.netlify.app",
+              "logo": "https://peellab-in.netlify.app/logo.png",
+              "description": "Premium stickers and custom sticker packs.",
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <CartProvider>
           <div className="site-peel" aria-hidden="true" />
