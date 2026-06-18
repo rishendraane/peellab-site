@@ -269,7 +269,7 @@ I'll send my photo next.`;
 
         {/* CTA Area */}
         <div className="flex flex-col items-center gap-6">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+          <div className="flex items-center justify-center w-full">
             <button
               onClick={() => {
                 addItem({
@@ -287,20 +287,7 @@ I'll send my photo next.`;
               <ShoppingCart size={16} />
               ADD TO CART (₹25)
             </button>
-
-            <button
-              onClick={handleCustomOrder}
-              className="flex items-center justify-center gap-3 bg-[#1A1A1A] border border-[#222222] hover:bg-[#252525] hover:border-[#333] text-white font-outfit text-sm font-extrabold uppercase tracking-wider py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-auto cursor-pointer"
-            >
-              <InstagramIcon className="w-4 h-4" />
-              GET CUSTOM TEMPLATE
-            </button>
           </div>
-
-          {/* Quick Preview Template */}
-          <p className="text-[#8E8E93] text-[10px] font-medium tracking-wide uppercase select-none">
-            Getting template copies DMs on Instagram
-          </p>
         </div>
 
       </div>
