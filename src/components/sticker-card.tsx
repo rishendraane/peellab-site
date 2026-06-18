@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ShoppingCart } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingCart, Plus, Minus, Trash2, Check } from "lucide-react";
 import { Sticker } from "@/types/sticker";
 import { useCart } from "@/context/cart-context";
 import { getCategoryBySlug } from "@/data/categories";
@@ -13,13 +13,38 @@ interface StickerCardProps {
 }
 
 export default function StickerCard({ sticker }: StickerCardProps) {
-  const { addItem } = useCart();
+  const { addItem, removeItem, updateQuantity, items } = useCart();
   const categoryLabel = getCategoryBySlug(sticker.category)?.label || sticker.category;
+
+  const cartItem = items.find((item) => item.sticker.id === sticker.id);
+  const quantityInCart = cartItem?.quantity || 0;
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     addItem(sticker);
+  };
+
+  const handleIncrement = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem(sticker);
+  };
+
+  const handleDecrement = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (quantityInCart <= 1) {
+      removeItem(sticker.id);
+    } else {
+      updateQuantity(sticker.id, quantityInCart - 1);
+    }
+  };
+
+  const handleRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    removeItem(sticker.id);
   };
 
   return (
@@ -33,6 +58,21 @@ export default function StickerCard({ sticker }: StickerCardProps) {
         <span className="absolute left-4 top-4 z-10 rounded-full bg-[#FF6A00]/10 px-3 py-1 font-outfit text-xs font-medium tracking-wide text-[#FF6A00] uppercase">
           {categoryLabel}
         </span>
+
+        {/* In Cart Badge */}
+        <AnimatePresence>
+          {quantityInCart > 0 && (
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="absolute right-4 top-4 z-10 flex items-center gap-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-1 font-outfit text-[10px] font-black tracking-wide text-emerald-400 uppercase"
+            >
+              <Check className="h-3 w-3" />
+              In Cart
+            </motion.span>
+          )}
+        </AnimatePresence>
 
         {/* Image Container */}
         <div className="relative flex items-center justify-center overflow-hidden rounded-xl bg-[#0D0D0D] py-8">
@@ -71,13 +111,59 @@ export default function StickerCard({ sticker }: StickerCardProps) {
               </span>
             </div>
 
-            <button
-              onClick={handleAddToCart}
-              className="flex items-center gap-1.5 rounded-md border border-[#222222] bg-transparent px-3 py-2 font-outfit text-xs font-black uppercase text-white transition-all duration-200 hover:bg-[#FF6A00] hover:border-[#FF6A00] active:scale-95 cursor-pointer"
-            >
-              <ShoppingCart className="h-3.5 w-3.5" />
-              ADD
-            </button>
+            <AnimatePresence mode="wait">
+              {quantityInCart > 0 ? (
+                <motion.div
+                  key="cart-controls"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.15 }}
+                  className="flex items-center gap-1"
+                >
+                  {/* Remove from cart */}
+                  <button
+                    onClick={handleRemove}
+                    className="flex items-center justify-center rounded-md border border-red-500/30 bg-red-500/10 p-1.5 text-red-400 transition-all duration-200 hover:bg-red-500/25 hover:border-red-500/50 active:scale-90 cursor-pointer"
+                    title="Remove from cart"
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                  </button>
+
+                  {/* Quantity controls */}
+                  <div className="flex items-center rounded-md border border-[#FF6A00]/40 bg-[#FF6A00]/10 overflow-hidden">
+                    <button
+                      onClick={handleDecrement}
+                      className="flex items-center justify-center px-1.5 py-1.5 text-[#FF6A00] transition-colors duration-150 hover:bg-[#FF6A00]/20 active:scale-90 cursor-pointer"
+                    >
+                      <Minus className="h-3 w-3 stroke-[3]" />
+                    </button>
+                    <span className="font-outfit text-xs font-black text-white min-w-[20px] text-center select-none">
+                      {quantityInCart}
+                    </span>
+                    <button
+                      onClick={handleIncrement}
+                      className="flex items-center justify-center px-1.5 py-1.5 text-[#FF6A00] transition-colors duration-150 hover:bg-[#FF6A00]/20 active:scale-90 cursor-pointer"
+                    >
+                      <Plus className="h-3 w-3 stroke-[3]" />
+                    </button>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.button
+                  key="add-button"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.15 }}
+                  onClick={handleAddToCart}
+                  className="flex items-center gap-1.5 rounded-md border border-[#222222] bg-transparent px-3 py-2 font-outfit text-xs font-black uppercase text-white transition-all duration-200 hover:bg-[#FF6A00] hover:border-[#FF6A00] active:scale-95 cursor-pointer"
+                >
+                  <ShoppingCart className="h-3.5 w-3.5" />
+                  ADD
+                </motion.button>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </motion.div>
