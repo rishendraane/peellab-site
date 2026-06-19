@@ -6,12 +6,14 @@ import { Footer } from "@/components/footer";
 import CartDrawer from "@/components/cart-drawer";
 import FloatingCart from "@/components/floating-cart";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://peellab-in.netlify.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://peellab-in.netlify.app'),
+  metadataBase: new URL(siteUrl),
   title: "PeelLab | Premium Anime, Gaming & Custom Stickers",
   description: "Premium stickers for anime, gaming, coding, cars, memes and custom designs. Build your own sticker pack or create custom stickers with PeelLab.",
   alternates: {
-    canonical: "https://peellab-in.netlify.app",
+    canonical: siteUrl,
   },
   verification: {
     google: "googlede6c4c38bee5a2b2",
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PeelLab | Premium Anime, Gaming & Custom Stickers",
     description: "Premium stickers for anime, gaming, coding, cars, memes and custom designs. Build your own sticker pack or create custom stickers with PeelLab.",
-    url: "https://peellab-in.netlify.app",
+    url: siteUrl,
     siteName: "PeelLab",
     images: [
       {
@@ -59,8 +61,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "PeelLab",
-              "url": "https://peellab-in.netlify.app",
-              "logo": "https://peellab-in.netlify.app/logo.png",
+              "url": siteUrl,
+              "logo": `${siteUrl}/logo.png`,
               "description": "Premium stickers and custom sticker packs.",
             }),
           }}

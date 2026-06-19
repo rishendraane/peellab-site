@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://peellab-in.netlify.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://peellab-in.netlify.app";
 
   return {
     rules: {

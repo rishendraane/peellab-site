@@ -3,7 +3,7 @@ import { getAllStickers } from "@/lib/stickers";
 import { categories, franchises } from "@/data/categories";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://peellab-in.netlify.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://peellab-in.netlify.app";
 
   // 1. Static core routes
   const staticRoutes = [
