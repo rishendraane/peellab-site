@@ -543,15 +543,15 @@ function DrawerContent({
                   <span>Shipping</span>
                   {shippingFee === 0 ? (
                     <span className="font-outfit text-xs font-bold text-[#FF6A00]">
-                      <span className="line-through text-[#8E8E93] mr-1.5 font-normal">₹39</span>FREE
+                      <span className="line-through text-[#8E8E93] mr-1.5 font-normal">₹49</span>FREE
                     </span>
                   ) : (
-                    <span className="text-white">₹39</span>
+                    <span className="text-white">₹49</span>
                   )}
                 </div>
                 {shippingFee > 0 && (
                   <span className="text-[10px] text-[#8E8E93] leading-none text-right font-medium">
-                    📦 Flat ₹39 Shipping Across India
+                    📦 Flat ₹49 Shipping Across India
                   </span>
                 )}
               </div>

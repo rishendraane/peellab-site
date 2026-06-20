@@ -154,7 +154,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const getShippingFee = useCallback(() => {
     const subtotal = getTotal();
     if (subtotal > 0 && subtotal < 199) {
-      return 39;
+      return 49;
     }
     return 0;
   }, [getTotal]);

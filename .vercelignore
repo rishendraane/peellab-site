@@ -1,0 +1,7 @@
+# Exclude large local folders and temp files from Vercel upload
+temp_unzipped/
+.next/
+.netlify/
+*.py
+scratch/
+node_modules/

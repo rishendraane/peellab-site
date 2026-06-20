@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     question: "What are your shipping rates and delivery times?",
-    answer: "We charge a flat ₹39 shipping fee across India for all orders below ₹199. Orders of ₹199 or above qualify for FREE shipping! Shipping is applied once per order, never per sticker.",
+    answer: "We charge a flat ₹49 shipping fee across India for all orders below ₹199. Orders of ₹199 or above qualify for FREE shipping! Shipping is applied once per order, never per sticker.",
   },
   {
     question: "Are the stickers durable?",
