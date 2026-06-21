@@ -5,3 +5,6 @@ temp_unzipped/
 *.py
 scratch/
 node_modules/
+.git_temp/
+.git_backup/
+.git/
